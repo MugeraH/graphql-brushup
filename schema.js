@@ -15,14 +15,12 @@ type Review{
     author:Author!
 }
 
-
 type Author{
     id:ID!
     name:String!
     verified:Boolean!
     reviews:[Review!]
 }
-
 
 type Query{
     reviews:[Review]
@@ -38,11 +36,18 @@ type Query{
 type Mutation{
     addGame(game:AddGameInput!):Game
     deleteGame(id:ID!):[Game]
+      deleteReview(id:ID!):[Review]
+    updateGame(id:ID!,edits:EditGameInput!):Game
 }
 
 input AddGameInput{
      title:String!,
     platform:[String!]!
+}
+
+input EditGameInput{
+     title:String,
+    platform:[String!]
 }
 
 
